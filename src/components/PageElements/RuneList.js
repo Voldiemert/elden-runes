@@ -7,7 +7,7 @@ const RuneList = (props) => {
                 {props.runeData.name}
             </div>
             <div>
-                {props.runeData.value} Runes
+                {props.runeData.value.toLocaleString()} Runes
             </div>
         </div>
     );
