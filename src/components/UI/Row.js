@@ -1,12 +1,12 @@
-import RuneList from "./RuneList";
-import RuneControls from "./RuneControls";
+import RuneList from "../PageElements/RuneList";
+import RuneControls from "../PageElements/RuneControls";
 import styles from './Row.module.scss'
 
 const Row = (props) => {
     return (
         <div className={styles.row}>
             <RuneList runeData={props.currentRune} />
-            <RuneControls />
+            <RuneControls runeValue={props.currentRune.value} />
         </div>
     );
 };
