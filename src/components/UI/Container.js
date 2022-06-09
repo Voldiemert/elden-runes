@@ -1,6 +1,6 @@
 import styles from './Container.module.scss';
-import RuneList from "./RuneList";
-import RuneControls from "./RuneControls";
+import RuneList from "../PageElements/RuneList";
+import RuneControls from "../PageElements/RuneControls";
 import Row from "./Row";
 
 const Container = () => {
