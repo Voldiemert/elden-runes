@@ -6,9 +6,9 @@ const Container = () => {
 
     let lvl = 161;
     const x = ((lvl+81)-92)*0.02;
-    console.log(x);
+    // console.log(x);
     const runeCost = Math.floor(((x+0.1)*((lvl+81)**2))+1);
-    console.log(runeCost);
+    // console.log(runeCost);
 
     let total = 0;
     const runes = [
@@ -37,11 +37,10 @@ const Container = () => {
     // TODO: figure out a correct way to manage the state of runes list so the total calcs correctly
     const computeTotal = () => {
         console.log('runes', runes);
-        const sum = runes.reduce((accumulator, rune) => {
+        total = runes.reduce((accumulator, rune) => {
             return accumulator + (rune.value * rune.count);
         }, 0);
 
-       total = sum;
        console.log(total);
     }
 
