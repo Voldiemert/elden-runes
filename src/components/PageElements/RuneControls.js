@@ -5,6 +5,8 @@ const RuneControls = (props) => {
     const updateRuneCountHandler = (event, identifier) => {
         const runeCount = props.currentRune.count;
 
+        console.log('current rune', props.currentRune);
+
         if (identifier === 'increment') {
             if (runeCount >= 0 && runeCount < 99) {
                 props.currentRune.count++;
