@@ -5,7 +5,8 @@ import InputElement from "./InputElement";
 const StickyFooter = (props) => {
 
     let [currentLevel, setCurrentLevel] = useState(10);
-    const [runeCost, setRuneCost] = useState(663);
+    const [levelUpCost, setLevelUpCost] = useState(663);
+    const [heldRunesCount, setHeldRunesCount] = useState(0);
 
     const onCustomInputElementEvent = (event) => {
         if (event.target.innerText === '+') {
@@ -39,12 +40,21 @@ const StickyFooter = (props) => {
 
     const calculateRuneCost = () => {
         const x = ((currentLevel+81)-92)*0.02;
-        setRuneCost(Math.floor(((x+0.1)*((currentLevel+81)**2))+1))
-    }
+        setLevelUpCost(Math.floor(((x+0.1)*((currentLevel+81)**2))+1))
+    };
+
+    const onUpdateTotalRunes = (event) => {
+        setHeldRunesCount(parseInt(event.target.value));
+    };
 
     useEffect(() => {
         calculateRuneCost();
     }, [currentLevel]);
+
+    const runesDifference = heldRunesCount + props.totalRunes - levelUpCost;
+    console.log('held runes count', heldRunesCount);
+    console.log('total runes', props.totalRunes);
+    console.log('level up cost', levelUpCost);
 
     return (
         <footer className={styles.footer}>
@@ -54,9 +64,17 @@ const StickyFooter = (props) => {
                 value={currentLevel}
                 min={10}
                 max={999}
-                onCustomInputElementEvent={onCustomInputElementEvent}
+                onCustomInputElementEvent={onCustomInputElementEvent}/>
+            <p>level up cost {levelUpCost}</p>
+            <InputElement
+                type={"number"}
+                inputMode={"numeric"}
+                value={heldRunesCount}
+                min={0}
+                hideButtons={true}
+                onCustomInputElementEvent={onUpdateTotalRunes}
             />
-            {runeCost}
+            <p className={runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor}>{runesDifference}</p>
         </footer>
     );
 };

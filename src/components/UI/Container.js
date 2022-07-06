@@ -2,9 +2,9 @@ import styles from './Container.module.scss';
 import Row from "./Row";
 import {useState} from "react";
 
-const Container = () => {
+const Container = (props) => {
 
-    const [total, setTotal] = useState(0);
+    // const [total, setTotal] = useState(0);
     const [runes, setRunes] = useState([
         {name: 'Golden Rune [1]', value: 200, count: 0},
         {name: 'Golden Rune [2]', value: 400, count: 0},
@@ -34,12 +34,12 @@ const Container = () => {
             return accumulator + (rune.value * rune.count);
         }, 0);
 
-        setTotal(_total);
+        props.updateTotalRunes(_total);
     }
 
     return (
         <div className={styles.container}>
-            {total}
+            {props.totalRunes}
             {runes.map((rune, index) => {
                 return <Row index={index} key={rune.name} currentRune={rune} updateTotal={computeTotal}/>
             })}
