@@ -1,20 +1,50 @@
 import styles from './StickyFooter.module.scss';
-import {useState} from "react";
+import {useEffect, useLayoutEffect, useState} from "react";
 import InputElement from "./InputElement";
 
 const StickyFooter = (props) => {
 
-    const [currentLevel, setCurrentLevel] = useState(10);
-    // let currentLevel = 161;
-    const x = ((currentLevel+81)-92)*0.02;
-    // console.log(x);
-    const runeCost = Math.floor(((x+0.1)*((currentLevel+81)**2))+1);
-    // console.log(runeCost);
+    let [currentLevel, setCurrentLevel] = useState(10);
+    const [runeCost, setRuneCost] = useState(663);
 
     const onCustomInputElementEvent = (event) => {
-        console.log('event');
-        // setCurrentLevel(currentLevel + 1);
+        if (event.target.innerText === '+') {
+            if (currentLevel >= 10 && currentLevel < 999) {
+                // TODO: Why does ++currentLevel work but doing setCurrentLevel(currentLevel + 1) cause it to not be right on some occasions.
+                setCurrentLevel(++currentLevel);
+            }
+        }
+        else if (event.target.innerText === '-') {
+            if (currentLevel > 10 && currentLevel <= 999) {
+                setCurrentLevel(--currentLevel);
+            }
+        }
+        else if (event._reactName === 'onChange' || event._reactName === 'onBlur') {
+            if (event.target.value > 999) {
+                // TODO: trigger modal
+                console.log('hold up slayer, you can\'t have that high of a level');
+            }
+            else if (event.target.value < 10) {
+                // TODO: trigger modal
+                console.log('you can\'t be a lower level than a Wrench character');
+            }
+            else if (event.target.value === "") {
+                setCurrentLevel(10);
+            }
+            else {
+                setCurrentLevel(parseInt(event.target.value));
+            }
+        }
+    };
+
+    const calculateRuneCost = () => {
+        const x = ((currentLevel+81)-92)*0.02;
+        setRuneCost(Math.floor(((x+0.1)*((currentLevel+81)**2))+1))
     }
+
+    useEffect(() => {
+        calculateRuneCost();
+    }, [currentLevel]);
 
     return (
         <footer className={styles.footer}>
