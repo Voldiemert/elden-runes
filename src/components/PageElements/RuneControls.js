@@ -1,49 +1,51 @@
-import {useState} from "react";
 import styles from './RuneControls.module.scss';
+import InputElement from "../UI/InputElement";
 
 const RuneControls = (props) => {
-    let [runeCount, setRuneCount] = useState(0);
 
     const updateRuneCountHandler = (event) => {
-        if (event.target.value > 99) {
-            console.log('hold up slayer, you can\'t hold that many runes in-game');
-        }
-        else if (event.target.value < 0) {
-            console.log('bank account balances are invalid. Try 0-99');
-        }
-        else if (event.target.value === "") {
-            setRuneCount(0);
-        }
-        else {
-            setRuneCount(event.target.value);
-        }
-    }
+        const runeCount = props.currentRune.count;
 
-    const decrementRuneCountHandler = () => {
-        if (runeCount >= 1 && runeCount <= 99) {
-            setRuneCount(--runeCount);
+        if (event.target.innerText === '+') {
+            if (runeCount >= 0 && runeCount < 99) {
+                // TODO: Modify state value with useState instead of directly for all currentRune.count
+                props.currentRune.count++;
+            }
         }
-    }
+        else if (event.target.innerText === '-') {
+            if (runeCount >= 1 && runeCount <= 99) {
+                props.currentRune.count--;
+            }
+        }
+        else if (event._reactName === 'onChange' || event._reactName === 'onBlur') {
+            if (event.target.value > 99) {
+                // TODO: trigger modal
+                console.log('hold up slayer, you can\'t hold that many runes in-game');
+            }
+            else if (event.target.value < 0) {
+                // TODO: trigger modal
+                console.log('bank account balances are invalid. Try 0-99');
+            }
+            else if (event.target.value === "") {
+                props.currentRune.count = 0;
+            }
+            else {
+                props.currentRune.count = parseInt(event.target.value);
+            }
+        }
 
-    const incrementRuneCountHandler = () => {
-        if (runeCount >= 0 && runeCount < 99) {
-            setRuneCount(++runeCount);
-        }
+        props.updateTotal();
     }
 
     return (
         <div>
-            <button onClick={decrementRuneCountHandler}>-</button>
-            <input className={styles.textCenter}
-               type="number"
-               inputMode="numeric"
-               value={runeCount}
-               min={0}
-               max={99}
-               onChange={updateRuneCountHandler}
-               onBlur={updateRuneCountHandler}>
-            </input>
-            <button onClick={incrementRuneCountHandler}>+</button>
+            <InputElement
+                type={"number"}
+                inputMode={"numeric"}
+                value={props.currentRune.count}
+                min={0}
+                max={0}
+                onCustomInputElementEvent={updateRuneCountHandler} />
         </div>
     )
 };

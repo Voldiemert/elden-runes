@@ -6,7 +6,7 @@ const Row = (props) => {
     return (
         <div className={styles.row}>
             <RuneList runeData={props.currentRune} />
-            <RuneControls runeValue={props.currentRune.value} />
+            <RuneControls currentRune={props.currentRune} updateTotal={props.updateTotal} />
         </div>
     );
 };
