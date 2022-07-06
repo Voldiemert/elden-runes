@@ -1,5 +1,6 @@
 import './App.scss';
 import Container from "./components/UI/Container";
+import StickyFooter from "./components/UI/StickyFooter";
 
 function App() {
     return (
@@ -8,11 +9,7 @@ function App() {
                 <p>Elden Runes</p>
             </header>
             <Container />
-            <footer className="App-footer">
-                <div>
-                    <p>sticky footer of some sort with a summary?</p>
-                </div>
-            </footer>
+            <StickyFooter />
         </div>
     );
 }
