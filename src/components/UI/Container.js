@@ -4,12 +4,6 @@ import {useState} from "react";
 
 const Container = () => {
 
-    let lvl = 161;
-    const x = ((lvl+81)-92)*0.02;
-    // console.log(x);
-    const runeCost = Math.floor(((x+0.1)*((lvl+81)**2))+1);
-    // console.log(runeCost);
-
     const [total, setTotal] = useState(0);
     const [runes, setRunes] = useState([
         {name: 'Golden Rune [1]', value: 200, count: 0},
