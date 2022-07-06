@@ -1,23 +1,23 @@
 import styles from './RuneControls.module.scss';
+import InputElement from "../UI/InputElement";
 
 const RuneControls = (props) => {
 
-    const updateRuneCountHandler = (event, identifier) => {
+    const updateRuneCountHandler = (event) => {
         const runeCount = props.currentRune.count;
 
-        console.log('current rune', props.currentRune);
-
-        if (identifier === 'increment') {
+        if (event.target.innerText === '+') {
             if (runeCount >= 0 && runeCount < 99) {
+                // TODO: Modify state value with useState instead of directly for all currentRune.count
                 props.currentRune.count++;
             }
         }
-        else if (identifier === 'decrement') {
+        else if (event.target.innerText === '-') {
             if (runeCount >= 1 && runeCount <= 99) {
                 props.currentRune.count--;
             }
         }
-        else if (identifier === 'onChange' || identifier === 'onBlur') {
+        else if (event._reactName === 'onChange' || event._reactName === 'onBlur') {
             if (event.target.value > 99) {
                 // TODO: trigger modal
                 console.log('hold up slayer, you can\'t hold that many runes in-game');
@@ -30,7 +30,7 @@ const RuneControls = (props) => {
                 props.currentRune.count = 0;
             }
             else {
-                props.currentRune.count = event.target.value;
+                props.currentRune.count = parseInt(event.target.value);
             }
         }
 
@@ -39,17 +39,13 @@ const RuneControls = (props) => {
 
     return (
         <div>
-            <button onClick={(e) => updateRuneCountHandler(e, 'decrement')}>-</button>
-            <input className={styles.textCenter}
-               type="number"
-               inputMode="numeric"
-               value={props.currentRune.count}
-               min={0}
-               max={99}
-               onChange={(e) => updateRuneCountHandler(e, 'onChange')}
-               onBlur={(e) => updateRuneCountHandler(e, 'onBlur')}>
-            </input>
-            <button onClick={(e) => updateRuneCountHandler(e, 'increment')}>+</button>
+            <InputElement
+                type={"number"}
+                inputMode={"numeric"}
+                value={props.currentRune.count}
+                min={0}
+                max={0}
+                onCustomInputElementEvent={updateRuneCountHandler} />
         </div>
     )
 };
