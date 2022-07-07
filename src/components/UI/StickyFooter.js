@@ -52,38 +52,41 @@ const StickyFooter = (props) => {
     }, [currentLevel, calculateRuneCost]);
 
     const runesDifference = heldRunesCount + props.totalRunes - levelUpCost;
-    console.log('held runes count', heldRunesCount);
-    console.log('total runes', props.totalRunes);
-    console.log('level up cost', levelUpCost);
 
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.footerContainer}>
+            <div className={styles.footerSubContainer}>
+                <div className={styles.footerSubContainer__row}>
+                    <p>Current Level: </p>
+                    <InputElement
+                        type={"number"}
+                        inputMode={"numeric"}
+                        value={currentLevel}
+                        min={10}
+                        max={999}
+                        onCustomInputElementEvent={onCustomInputElementEvent}/>
 
-            <p>Current Level: </p>
-            <InputElement
-                type={"number"}
-                inputMode={"numeric"}
-                value={currentLevel}
-                min={10}
-                max={999}
-                onCustomInputElementEvent={onCustomInputElementEvent}/>
+                </div>
+                <div className={styles.footerSubContainer}>
+                    <p>Level Up Cost: {levelUpCost}</p>
+                </div>
+            </div>
+            <div className={styles.footerSubContainer}>
+                <div className={styles.footerSubContainer__row}>
+                    <p>Runes Held: </p>
 
-            <p>Level Up Cost: {levelUpCost}</p>
+                    <InputElement
+                        type={"number"}
+                        inputMode={"numeric"}
+                        value={heldRunesCount}
+                        min={0}
+                        hideButtons={true}
+                        onCustomInputElementEvent={onUpdateTotalRunes}
+                    />
+                </div>
 
-
-
-            <p>Runes Held: </p>
-            <InputElement
-                type={"number"}
-                inputMode={"numeric"}
-                value={heldRunesCount}
-                min={0}
-                hideButtons={true}
-                onCustomInputElementEvent={onUpdateTotalRunes}
-            />
-
-            <p className={runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor}>Runes Difference: {runesDifference}</p>
-
+                <p className={runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor}>Runes Difference: {runesDifference}</p>
+            </div>
         </footer>
     );
 };

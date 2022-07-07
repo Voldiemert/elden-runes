@@ -1,11 +1,20 @@
-.footer {
+.footerContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     position: sticky;
     bottom: 0;
-    height: 50px;
     background-color: aqua;
+}
+
+.footerSubContainer {
+    display: flex;
+    flex-direction: column;
+
+    &__row {
+        display: flex;
+        flex-direction: row;
+    }
 }
 
 .negativeTextColor {
@@ -15,3 +24,6 @@
 .positiveTextColor {
     color: green;
 }
+
+
+
