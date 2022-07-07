@@ -49,7 +49,7 @@ const StickyFooter = (props) => {
 
     useEffect(() => {
         calculateRuneCost();
-    }, [currentLevel]);
+    }, [currentLevel, calculateRuneCost]);
 
     const runesDifference = heldRunesCount + props.totalRunes - levelUpCost;
     console.log('held runes count', heldRunesCount);
@@ -58,6 +58,8 @@ const StickyFooter = (props) => {
 
     return (
         <footer className={styles.footer}>
+
+            <p>Current Level: </p>
             <InputElement
                 type={"number"}
                 inputMode={"numeric"}
@@ -65,7 +67,12 @@ const StickyFooter = (props) => {
                 min={10}
                 max={999}
                 onCustomInputElementEvent={onCustomInputElementEvent}/>
-            <p>level up cost {levelUpCost}</p>
+
+            <p>Level Up Cost: {levelUpCost}</p>
+
+
+
+            <p>Runes Held: </p>
             <InputElement
                 type={"number"}
                 inputMode={"numeric"}
@@ -74,7 +81,9 @@ const StickyFooter = (props) => {
                 hideButtons={true}
                 onCustomInputElementEvent={onUpdateTotalRunes}
             />
-            <p className={runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor}>{runesDifference}</p>
+
+            <p className={runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor}>Runes Difference: {runesDifference}</p>
+
         </footer>
     );
 };

@@ -1,4 +1,4 @@
-import styles from "../PageElements/RuneControls.module.scss";
+import styles from "./InputElement.module.scss";
 
 const InputElement = (props) => {
     
