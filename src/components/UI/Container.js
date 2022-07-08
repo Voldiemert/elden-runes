@@ -39,7 +39,6 @@ const Container = (props) => {
 
     return (
         <div className={styles.container}>
-            {props.totalRunes}
             {runes.map((rune, index) => {
                 return <Row index={index} key={rune.name} currentRune={rune} updateTotal={computeTotal}/>
             })}
