@@ -65,7 +65,6 @@ const StickyFooter = (props) => {
                         min={10}
                         max={999}
                         onCustomInputElementEvent={onCustomInputElementEvent}/>
-
                 </div>
                 <div className={styles.footerSubContainer}>
                     <p>Level Up Cost: {levelUpCost}</p>
@@ -85,7 +84,7 @@ const StickyFooter = (props) => {
                     />
                 </div>
 
-                <p className={runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor}>Runes Difference: {runesDifference}</p>
+                <p className={runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor}>Runes Difference: {runesDifference > 0 && <span>+</span>}{runesDifference}</p>
             </div>
         </footer>
     );
