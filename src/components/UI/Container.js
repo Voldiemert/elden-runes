@@ -28,7 +28,6 @@ const Container = (props) => {
         {name: 'Lord\'s Rune', value: 50000, count: 0}
     ]);
 
-    // TODO: figure out a correct way to manage the state of runes list so the total calcs correctly
     const computeTotal = () => {
         const _total = runes.reduce((accumulator, rune) => {
             return accumulator + (rune.value * rune.count);
