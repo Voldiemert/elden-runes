@@ -1,10 +1,12 @@
-import styles from "../PageElements/RuneControls.module.scss";
+import styles from "./InputElement.module.scss";
 
 const InputElement = (props) => {
+    
+    const hideButtons = !props.hideButtons || false;
 
     return (
         <>
-            <button onClick={(e) => props.onCustomInputElementEvent(e)}>-</button>
+            {hideButtons && <button onClick={(e) => props.onCustomInputElementEvent(e)}>-</button>}
             <input className={styles.textCenter}
                    type={props.type}
                    inputMode={props.inputMode || null}
@@ -14,7 +16,7 @@ const InputElement = (props) => {
                    onChange={(e) => props.onCustomInputElementEvent(e)}
                    onBlur={(e) => props.onCustomInputElementEvent(e)}>
             </input>
-            <button onClick={(e) => props.onCustomInputElementEvent(e)}>+</button>
+            {hideButtons && <button onClick={(e) => props.onCustomInputElementEvent(e)}>+</button>}
         </>
     );
 };
