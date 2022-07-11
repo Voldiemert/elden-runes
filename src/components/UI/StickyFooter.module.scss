@@ -5,6 +5,7 @@
     position: sticky;
     bottom: 0;
     background-color: #282c34;
+    padding-top: 20px;
 }
 
 .footerSubContainer {
@@ -14,6 +15,8 @@
     &__row {
         display: flex;
         flex-direction: row;
+        height: 30px;
+        align-items: center;
     }
 }
 
@@ -23,6 +26,24 @@
 
 .positiveTextColor {
     color: green;
+}
+
+.testContainer {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+}
+
+.marginRight {
+    margin-right: 20px;
+}
+
+.marginLeft {
+    margin-left: 20px;
+}
+
+.labelMargin {
+    margin-right: 10px;
 }
 
 

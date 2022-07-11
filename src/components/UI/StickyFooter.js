@@ -55,37 +55,40 @@ const StickyFooter = (props) => {
 
     return (
         <footer className={styles.footerContainer}>
-            <div className={styles.footerSubContainer}>
-                <div className={styles.footerSubContainer__row}>
-                    <p>Current Level: </p>
-                    <InputElement
-                        type={"number"}
-                        inputMode={"numeric"}
-                        value={currentLevel}
-                        min={10}
-                        max={999}
-                        onCustomInputElementEvent={onCustomInputElementEvent}/>
-                </div>
-                <div className={styles.footerSubContainer}>
+            <div className={styles.testContainer}>
+                <div className={`${styles.footerSubContainer}, ${styles.marginRight}`}>
+                    <div className={styles.footerSubContainer__row}>
+                        <div className={`${styles.footerSubContainer}, ${styles.labelMargin}`}>
+                            <p>Current Level:  </p>
+                        </div>
+                        <InputElement
+                            type={"number"}
+                            inputMode={"numeric"}
+                            value={currentLevel}
+                            min={10}
+                            max={999}
+                            onCustomInputElementEvent={onCustomInputElementEvent}/>
+                    </div>
                     <p>Level Up Cost: {levelUpCost}</p>
                 </div>
-            </div>
-            <div className={styles.footerSubContainer}>
-                <div className={styles.footerSubContainer__row}>
-                    <p>Runes Held: </p>
-
-                    <InputElement
-                        type={"number"}
-                        inputMode={"numeric"}
-                        value={heldRunesCount}
-                        min={0}
-                        hideButtons={true}
-                        onCustomInputElementEvent={onUpdateTotalRunes}
-                    />
+                <div className={styles.footerSubContainer}>
+                    <div className={styles.footerSubContainer__row}>
+                        <div className={`${styles.footerSubContainer}, ${styles.labelMargin}`}>
+                            <p>Runes Held: </p>
+                        </div>
+                        <InputElement
+                            type={"number"}
+                            inputMode={"numeric"}
+                            value={heldRunesCount}
+                            min={0}
+                            hideButtons={true}
+                            onCustomInputElementEvent={onUpdateTotalRunes}
+                        />
+                    </div>
+                    <p className={runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor}>Runes Difference: {runesDifference > 0 && <span>+</span>}{runesDifference}</p>
                 </div>
-
-                <p className={runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor}>Runes Difference: {runesDifference > 0 && <span>+</span>}{runesDifference}</p>
             </div>
+
         </footer>
     );
 };
