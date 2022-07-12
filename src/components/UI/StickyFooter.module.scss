@@ -7,6 +7,18 @@
         display: flex;
     }
 
+    .centerContent {
+        justify-content: center;
+    }
+
+    .textLeft {
+        text-align: left;
+    }
+
+    .textRight {
+        text-align: right;
+    }
+
     .positiveTextColor {
         color: green;
     }

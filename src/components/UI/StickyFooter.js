@@ -55,37 +55,50 @@ const StickyFooter = (props) => {
 
     return (
         <footer className={styles.footer}>
-            <div className={styles.flexContainer}>
-                <div>
-                    <div>
-                        {/*TODO: should Current Level go in a <p> tag?*/}
-                        Current Level:
-                        <InputElement
-                            type={"number"}
-                            inputMode={"numeric"}
-                            value={currentLevel}
-                            min={10}
-                            max={999}
-                            onCustomInputElementEvent={onCustomInputElementEvent}/>
+            <div className={`${styles.flexContainer} ${styles.centerContent}`}>
+                <div className={styles.textLeft}>
+                    <div className={styles.flexContainer}>
+                        <div>
+                            Current Level:
+                        </div>
+                        <div className={styles.flexContainer}>
+                            <InputElement
+                                type={"number"}
+                                inputMode={"numeric"}
+                                value={currentLevel}
+                                min={10}
+                                max={999}
+                                hideButtons={true}
+                                onCustomInputElementEvent={onCustomInputElementEvent}/>
+                        </div>
                     </div>
                     <div>
                         {/*TODO: should this go in a <p> tag?*/}
-                        Level Up Cost: {levelUpCost}
+                        Level Up Cost: {levelUpCost.toLocaleString()}
                     </div>
                 </div>
-                <div>
-                    <div>
-                        Runes Held:
-                        <InputElement
-                             type={"number"}
-                             inputMode={"numeric"}
-                             value={heldRunesCount}
-                             min={0}
-                             hideButtons={true}
-                             onCustomInputElementEvent={onUpdateTotalRunes}/>
+                <div className={styles.textLeft}>
+                    <div className={styles.flexContainer}>
+                        <div>
+                            Held:
+                        </div>
+                        <div>
+                            <InputElement
+                                type={"number"}
+                                inputMode={"numeric"}
+                                value={heldRunesCount}
+                                min={0}
+                                hideButtons={true}
+                                onCustomInputElementEvent={onUpdateTotalRunes}/>
+                        </div>
                     </div>
-                    <div className={runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor}>
-                        Runes Difference: {runesDifference > 0 && <span>+</span>}{runesDifference}
+                    <div className={styles.flexContainer}>
+                        <div>
+                            Needed:
+                        </div>
+                        <div className={`${runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor} ${styles.textRight}`}>
+                            {runesDifference > 0 && <span>+</span>}{runesDifference.toLocaleString()}
+                        </div>
                     </div>
                 </div>
             </div>
