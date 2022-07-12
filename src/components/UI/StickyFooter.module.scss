@@ -1,50 +1,70 @@
-.footerContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.footer {
     position: sticky;
     bottom: 0;
     background-color: #282c34;
-    padding-top: 20px;
-}
 
-.footerSubContainer {
-    display: flex;
-    flex-direction: column;
-
-    &__row {
+    .flexContainer {
         display: flex;
-        flex-direction: row;
-        height: 30px;
-        align-items: center;
+    }
+
+    .positiveTextColor {
+        color: green;
+    }
+
+    .negativeTextColor {
+        color: red;
     }
 }
 
-.negativeTextColor {
-    color: red;
-}
 
-.positiveTextColor {
-    color: green;
-}
 
-.testContainer {
-    display: flex;
-    width: 50%;
-    justify-content: center;
-}
-
-.marginRight {
-    margin-right: 20px;
-}
-
-.marginLeft {
-    margin-left: 20px;
-}
-
-.labelMargin {
-    margin-right: 10px;
-}
+//.footerContainer {
+//    display: flex;
+//    justify-content: center;
+//    align-items: center;
+//    position: sticky;
+//    bottom: 0;
+//    background-color: #282c34;
+//    padding-top: 20px;
+//}
+//
+//.footerSubContainer {
+//    display: flex;
+//    flex-direction: column;
+//
+//    &__row {
+//        display: flex;
+//        flex-direction: row;
+//        height: 30px;
+//        align-items: center;
+//    }
+//}
+//
+//.negativeTextColor {
+//    color: red;
+//}
+//
+//.positiveTextColor {
+//    color: green;
+//}
+//
+//.testContainer {
+//    display: flex;
+//    width: 50%;
+//    justify-content: center;
+//}
+//
+//.marginRight {
+//    margin-right: 20px;
+//}
+//
+//.marginLeft {
+//    margin-left: 20px;
+//}
+//
+//.labelMargin {
+//    margin-right: 10px;
+//}
 
 
 

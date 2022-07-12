@@ -54,13 +54,12 @@ const StickyFooter = (props) => {
     const runesDifference = heldRunesCount + props.totalRunes - levelUpCost;
 
     return (
-        <footer className={styles.footerContainer}>
-            <div className={styles.testContainer}>
-                <div className={`${styles.footerSubContainer}, ${styles.marginRight}`}>
-                    <div className={styles.footerSubContainer__row}>
-                        <div className={`${styles.footerSubContainer}, ${styles.labelMargin}`}>
-                            <p>Current Level:  </p>
-                        </div>
+        <footer className={styles.footer}>
+            <div className={styles.flexContainer}>
+                <div>
+                    <div>
+                        {/*TODO: should Current Level go in a <p> tag?*/}
+                        Current Level:
                         <InputElement
                             type={"number"}
                             inputMode={"numeric"}
@@ -69,26 +68,27 @@ const StickyFooter = (props) => {
                             max={999}
                             onCustomInputElementEvent={onCustomInputElementEvent}/>
                     </div>
-                    <p>Level Up Cost: {levelUpCost}</p>
-                </div>
-                <div className={styles.footerSubContainer}>
-                    <div className={styles.footerSubContainer__row}>
-                        <div className={`${styles.footerSubContainer}, ${styles.labelMargin}`}>
-                            <p>Runes Held: </p>
-                        </div>
-                        <InputElement
-                            type={"number"}
-                            inputMode={"numeric"}
-                            value={heldRunesCount}
-                            min={0}
-                            hideButtons={true}
-                            onCustomInputElementEvent={onUpdateTotalRunes}
-                        />
+                    <div>
+                        {/*TODO: should this go in a <p> tag?*/}
+                        Level Up Cost: {levelUpCost}
                     </div>
-                    <p className={runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor}>Runes Difference: {runesDifference > 0 && <span>+</span>}{runesDifference}</p>
+                </div>
+                <div>
+                    <div>
+                        Runes Held:
+                        <InputElement
+                             type={"number"}
+                             inputMode={"numeric"}
+                             value={heldRunesCount}
+                             min={0}
+                             hideButtons={true}
+                             onCustomInputElementEvent={onUpdateTotalRunes}/>
+                    </div>
+                    <div className={runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor}>
+                        Runes Difference: {runesDifference > 0 && <span>+</span>}{runesDifference}
+                    </div>
                 </div>
             </div>
-
         </footer>
     );
 };
