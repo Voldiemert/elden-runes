@@ -7,7 +7,7 @@ const InputElement = (props) => {
     return (
         <>
             {hideButtons && <button onClick={(e) => props.onCustomInputElementEvent(e)}>-</button>}
-            <input className={`${styles.textCenter} ${styles.maxWidth}`}
+            <input className={`${styles.textCenter} ${styles.maxWidth} ${props.inputLeftMargin ? styles.leftMargin : ''}`}
                    type={props.type}
                    inputMode={props.inputMode || null}
                    value={props.value}

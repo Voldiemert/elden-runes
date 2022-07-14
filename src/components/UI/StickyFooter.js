@@ -55,7 +55,7 @@ const StickyFooter = (props) => {
 
     return (
         <footer className={styles.footer}>
-            <div className={`${styles.flexContainer} ${styles.centerContent}`}>
+            <div className={`${styles.flexContainer} ${styles.centerContent} ${styles.flexGap}`}>
                 <div className={styles.textLeft}>
                     <div className={styles.flexContainer}>
                         <div>
@@ -69,6 +69,7 @@ const StickyFooter = (props) => {
                                 min={10}
                                 max={999}
                                 hideButtons={true}
+                                inputLeftMargin={true}
                                 onCustomInputElementEvent={onCustomInputElementEvent}/>
                         </div>
                     </div>
@@ -89,6 +90,7 @@ const StickyFooter = (props) => {
                                 value={heldRunesCount}
                                 min={0}
                                 hideButtons={true}
+                                inputLeftMargin={true}
                                 onCustomInputElementEvent={onUpdateTotalRunes}/>
                         </div>
                     </div>
