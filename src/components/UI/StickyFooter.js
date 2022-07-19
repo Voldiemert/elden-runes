@@ -73,9 +73,13 @@ const StickyFooter = (props) => {
                                 onCustomInputElementEvent={onCustomInputElementEvent}/>
                         </div>
                     </div>
-                    <div>
-                        {/*TODO: should this go in a <p> tag?*/}
-                        Level Up Cost: {levelUpCost.toLocaleString()}
+                    <div className={styles.flexContainer}>
+                        <div>
+                            Level Up Cost:
+                        </div>
+                        <div className={styles.marginLeft}>
+                            {levelUpCost.toLocaleString()}
+                        </div>
                     </div>
                 </div>
                 <div className={styles.textLeft}>
@@ -98,7 +102,7 @@ const StickyFooter = (props) => {
                         <div>
                             Needed:
                         </div>
-                        <div className={`${runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor} ${styles.textRight}`}>
+                        <div className={`${runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor} ${styles.textRight} ${styles.marginLeft}`}>
                             {runesDifference > 0 && <span>+</span>}{runesDifference.toLocaleString()}
                         </div>
                     </div>
