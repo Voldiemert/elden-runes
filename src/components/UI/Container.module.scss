@@ -1,5 +1,5 @@
 .container {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     grid-gap: 0.5rem;
     gap: 0.5rem;
@@ -7,4 +7,5 @@
     margin-right: auto;
     min-width: var(--table-min-width);
     text-align: left;
+    width: 30%
 }

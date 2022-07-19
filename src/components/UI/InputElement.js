@@ -6,7 +6,8 @@ const InputElement = (props) => {
 
     return (
         <>
-            {hideButtons && <button onClick={(e) => props.onCustomInputElementEvent(e)}>-</button>}
+            {hideButtons && <div className={styles.fauxButton} onClick={(e) => props.onCustomInputElementEvent(e)}>-</div>}
+            {/*{hideButtons && <button onClick={(e) => props.onCustomInputElementEvent(e)}>-</button>}*/}
             <input className={`${styles.textCenter} ${styles.maxWidth} ${props.inputLeftMargin ? styles.leftMargin : ''}`}
                    type={props.type}
                    inputMode={props.inputMode || null}
@@ -16,7 +17,8 @@ const InputElement = (props) => {
                    onChange={(e) => props.onCustomInputElementEvent(e)}
                    onBlur={(e) => props.onCustomInputElementEvent(e)}>
             </input>
-            {hideButtons && <button onClick={(e) => props.onCustomInputElementEvent(e)}>+</button>}
+            {hideButtons && <div className={styles.fauxButton} onClick={(e) => props.onCustomInputElementEvent(e)}>+</div>}
+            {/*{hideButtons && <button onClick={(e) => props.onCustomInputElementEvent(e)}>+</button>}*/}
         </>
     );
 };

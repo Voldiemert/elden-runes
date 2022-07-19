@@ -1,5 +1,5 @@
 import styles from './StickyFooter.module.scss';
-import {useEffect, useLayoutEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import InputElement from "./InputElement";
 
 const StickyFooter = (props) => {
