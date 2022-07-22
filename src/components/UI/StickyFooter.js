@@ -1,5 +1,5 @@
 import styles from './StickyFooter.module.scss';
-import {useEffect, useLayoutEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import InputElement from "./InputElement";
 
 const StickyFooter = (props) => {
@@ -54,38 +54,56 @@ const StickyFooter = (props) => {
     const runesDifference = heldRunesCount + props.totalRunes - levelUpCost;
 
     return (
-        <footer className={styles.footerContainer}>
-            <div className={styles.footerSubContainer}>
-                <div className={styles.footerSubContainer__row}>
-                    <p>Current Level: </p>
-                    <InputElement
-                        type={"number"}
-                        inputMode={"numeric"}
-                        value={currentLevel}
-                        min={10}
-                        max={999}
-                        onCustomInputElementEvent={onCustomInputElementEvent}/>
-
+        <footer className={styles.footer}>
+            <div className={`${styles.flexContainer} ${styles.centerContent} ${styles.flexGap}`}>
+                <div className={styles.textLeft}>
+                    <div className={styles.flexContainer}>
+                        <div>
+                            Current Level:
+                        </div>
+                        <div className={styles.flexContainer}>
+                            <InputElement
+                                type={"number"}
+                                inputMode={"numeric"}
+                                value={currentLevel}
+                                hideButtons={true}
+                                inputLeftMargin={true}
+                                onCustomInputElementEvent={onCustomInputElementEvent}/>
+                        </div>
+                    </div>
+                    <div className={styles.flexContainer}>
+                        <div>
+                            Level Up Cost:
+                        </div>
+                        <div className={styles.marginLeft}>
+                            {levelUpCost.toLocaleString()}
+                        </div>
+                    </div>
                 </div>
-                <div className={styles.footerSubContainer}>
-                    <p>Level Up Cost: {levelUpCost}</p>
+                <div className={styles.textLeft}>
+                    <div className={styles.flexContainer}>
+                        <div>
+                            Held:
+                        </div>
+                        <div>
+                            <InputElement
+                                type={"number"}
+                                inputMode={"numeric"}
+                                value={heldRunesCount}
+                                hideButtons={true}
+                                inputLeftMargin={true}
+                                onCustomInputElementEvent={onUpdateTotalRunes}/>
+                        </div>
+                    </div>
+                    <div className={styles.flexContainer}>
+                        <div>
+                            Needed:
+                        </div>
+                        <div className={`${runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor} ${styles.textRight} ${styles.marginLeft}`}>
+                            {runesDifference > 0 && <span>+</span>}{runesDifference.toLocaleString()}
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div className={styles.footerSubContainer}>
-                <div className={styles.footerSubContainer__row}>
-                    <p>Runes Held: </p>
-
-                    <InputElement
-                        type={"number"}
-                        inputMode={"numeric"}
-                        value={heldRunesCount}
-                        min={0}
-                        hideButtons={true}
-                        onCustomInputElementEvent={onUpdateTotalRunes}
-                    />
-                </div>
-
-                <p className={runesDifference > 0 ? styles.positiveTextColor : styles.negativeTextColor}>Runes Difference: {runesDifference}</p>
             </div>
         </footer>
     );

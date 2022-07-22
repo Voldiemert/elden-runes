@@ -1,28 +1,39 @@
-.footerContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.footer {
     position: sticky;
     bottom: 0;
-    background-color: aqua;
-}
+    background-color: #282c34;
 
-.footerSubContainer {
-    display: flex;
-    flex-direction: column;
-
-    &__row {
+    .flexContainer {
         display: flex;
-        flex-direction: row;
     }
-}
+    
+    .flexGap {
+        gap: 30px;
+    }
 
-.negativeTextColor {
-    color: red;
-}
+    .centerContent {
+        justify-content: center;
+    }
 
-.positiveTextColor {
-    color: green;
+    .textLeft {
+        text-align: left;
+    }
+
+    .textRight {
+        text-align: right;
+    }
+
+    .positiveTextColor {
+        color: green;
+    }
+
+    .negativeTextColor {
+        color: red;
+    }
+
+    .marginLeft {
+        margin-left: 10px;
+    }
 }
 
 

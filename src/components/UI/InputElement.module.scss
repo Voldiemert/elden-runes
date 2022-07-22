@@ -1,3 +1,26 @@
+.flexContainer {
+    display: flex;
+}
+
 .textCenter {
     text-align: center;
+}
+
+.maxWidth {
+    max-width: 80px;
+}
+
+.leftMargin {
+    margin-left: 10px;
+}
+
+.fauxButton {
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
 }

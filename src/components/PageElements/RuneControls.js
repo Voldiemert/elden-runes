@@ -43,8 +43,6 @@ const RuneControls = (props) => {
                 type={"number"}
                 inputMode={"numeric"}
                 value={props.currentRune.count}
-                min={0}
-                max={0}
                 onCustomInputElementEvent={updateRuneCountHandler} />
         </div>
     )
