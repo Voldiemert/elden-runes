@@ -1,3 +1,5 @@
+@import 'include-media';
+
 .container {
     display: flex;
     flex-direction: column;
@@ -7,5 +9,12 @@
     margin-right: auto;
     min-width: var(--table-min-width);
     text-align: left;
-    width: 30%
+
+    @include media('<tablet') {
+        width: 80%;
+    }
+
+    @include media('>tablet') {
+        width: 30%;
+    }
 }
