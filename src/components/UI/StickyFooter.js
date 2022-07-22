@@ -66,8 +66,6 @@ const StickyFooter = (props) => {
                                 type={"number"}
                                 inputMode={"numeric"}
                                 value={currentLevel}
-                                min={10}
-                                max={999}
                                 hideButtons={true}
                                 inputLeftMargin={true}
                                 onCustomInputElementEvent={onCustomInputElementEvent}/>
@@ -92,7 +90,6 @@ const StickyFooter = (props) => {
                                 type={"number"}
                                 inputMode={"numeric"}
                                 value={heldRunesCount}
-                                min={0}
                                 hideButtons={true}
                                 inputLeftMargin={true}
                                 onCustomInputElementEvent={onUpdateTotalRunes}/>

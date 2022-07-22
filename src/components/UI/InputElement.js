@@ -11,8 +11,6 @@ const InputElement = (props) => {
                    type={props.type}
                    inputMode={props.inputMode || null}
                    value={props.value}
-                   min={props.min}
-                   max={props.max}
                    onChange={(e) => props.onCustomInputElementEvent(e)}
                    onBlur={(e) => props.onCustomInputElementEvent(e)}>
             </input>
