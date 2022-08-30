@@ -11,10 +11,19 @@
     text-align: left;
 
     @include media('<tablet') {
-        width: 80%;
+        width: 95%;
     }
 
     @include media('>tablet') {
         width: 30%;
     }
+}
+
+
+.backgroundImage {
+    background: url("../../../public/siteofgrace2.jpeg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
