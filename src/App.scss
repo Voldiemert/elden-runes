@@ -32,6 +32,17 @@
     color: #61dafb;
 }
 
+.backgroundImage {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    background: url("../public/siteofgrace2.jpeg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 @keyframes App-logo-spin {
     from {
       transform: rotate(0deg);
