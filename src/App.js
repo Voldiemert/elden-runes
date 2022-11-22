@@ -15,9 +15,10 @@ function App() {
             <header className="App-header">
                 <p>Elden Runes</p>
             </header>
-            <div className="backgroundImage"></div>
-            <Container totalRunes={totalRunes} updateTotalRunes={updateTotalRunes} />
-            <StickyFooter totalRunes={totalRunes} />
+            <div className="backgroundImage">
+                <Container totalRunes={totalRunes} updateTotalRunes={updateTotalRunes} />
+                <StickyFooter totalRunes={totalRunes} />
+            </div>
         </div>
     );
 }
