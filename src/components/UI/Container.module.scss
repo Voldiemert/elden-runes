@@ -9,6 +9,7 @@
     margin-right: auto;
     min-width: var(--table-min-width);
     text-align: left;
+    background-color: rgba(0, 0, 0, .5);
 
     @include media('<tablet') {
         width: 95%;
