@@ -9,6 +9,7 @@ const StickyFooter = (props) => {
     const [heldRunesCount, setHeldRunesCount] = useState(0);
 
     const onCustomInputElementEvent = (event) => {
+        console.log('event onCustonInputElementEvent', event);
         if (event.target.innerText === '+') {
             if (currentLevel >= 10 && currentLevel < 999) {
                 // TODO: Why does ++currentLevel work but doing setCurrentLevel(currentLevel + 1) cause it to not be right on some occasions.

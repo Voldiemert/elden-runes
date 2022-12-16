@@ -9,6 +9,7 @@ function App() {
     const updateTotalRunes = (total) => {
         setTotalRunes(total);
     };
+    console.log('starting');
 
     return (
         <div className="App">

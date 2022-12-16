@@ -4,6 +4,7 @@ import InputElement from "../UI/InputElement";
 const RuneControls = (props) => {
 
     const updateRuneCountHandler = (event) => {
+        console.log('event', event);
         const runeCount = props.currentRune.count;
 
         if (event.target.innerText === '+') {
