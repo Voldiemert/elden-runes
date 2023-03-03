@@ -2,6 +2,7 @@ import './App.scss';
 import Container from "./components/UI/Container";
 import StickyFooter from "./components/UI/StickyFooter";
 import {useState} from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
     const [totalRunes, setTotalRunes] = useState(0);
@@ -19,6 +20,7 @@ function App() {
                 <Container totalRunes={totalRunes} updateTotalRunes={updateTotalRunes} />
                 <StickyFooter totalRunes={totalRunes} />
             </div>
+            <Analytics />
         </div>
     );
 }
